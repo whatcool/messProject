@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Items</title>
+</head>
+
+<body>
+    <h1>All Items</h1>
+    <h2>Veg</h2>
+    <h3>
+        <% for(let item of allItems) {%>
+            <% if(item.itemType == 'Veg') {%>
+                <%=item.itemName%>
+                    <a href="/<%=item._id%>/editItem">Edit</a>
+                    <a href="/<%=item._id%>/deleteItem">Delete</a>
+                    <br>
+                    <% } %>
+                        <% } %>
+    </h3>
+    <a href="/admin/addVeg">Add Item</a>
+    <br>
+    <h2>Non-Veg</h2>
+    <h3>
+        <% for(let item of allItems) {%>
+            <% if(item.itemType == 'non-veg') {%>
+                <%=item.itemName%>
+                    <a href="/<%=item._id%>/editItem">Edit</a>
+                    <a href="/<%=item._id%>/deleteItem">Delete</a>
+                    <br>
+                    <% } %>
+                        <% } %>
+    </h3>
+    <a href="/admin/addNon-veg">Add Item</a>
+    <h3>
+        <form action="/logout" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+    </h3>
+</body>
+
+</html>

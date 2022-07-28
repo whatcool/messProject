@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Items</title>
+</head>
+
+<body>
+    <h2>
+        <u> User Details </u></h2>
+    <h3> Name:
+        <%=user.name%> <br> Registration No.:
+            <%=user.regNumber%> <br> Year:
+                <%=user.year%> <br>
+    </h3>
+    <h1>VEG Items</h1>
+    <h3>
+        <% for(let item of allItems) {%>
+            <% if(item.itemType === 'Veg') {%>
+                <a href="/<%=userId%>/<%=item._id%>">
+                    <%=item.itemName%>
+                        <br>
+                        <%}%>
+                </a>
+                <% } %>
+    </h3>
+    <br>
+    <h1>NON-VEG Items</h1>
+    <h3>
+        <% for(let item of allItems) {%>
+            <% if(item.itemType === 'non-veg') {%>
+                <a href="/<%=userId%>/<%=item._id%>">
+                    <%=item.itemName%>
+                        <br>
+                        <%}%>
+                </a>
+                <% } %>
+    </h3>
+    <h2><u>Your Total Orders</u></h2>
+    <h3>
+        <% let total = 0 %>
+            <% for(let it of user.selectedItem) {%>
+                <%=it.itemName%> X
+                    <%=it.itemQnt%> = Rs.
+                        <%=(it.itemPrice)*it.itemQnt%>
+                            <% total = total + ((it.itemPrice)*it.itemQnt) %>
+                                <br>
+                                <% } %>
+    </h3>
+    <h3>
+        <b> Total amount = Rs.
+        <%=total%></b>
+    </h3>
+    <h2>
+        <form action="/logout" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+    </h2>
+</body>
+
+</html>

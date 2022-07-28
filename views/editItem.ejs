@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=item.itemName%>
+    </title>
+</head>
+
+<body>
+    <form action="/<%=item._id%>/editItem" method="POST">
+        <label for="itemType">Type (Veg/non-veg): </label>
+        <input type="text" name="itemType" value="<%=item.itemType%>">
+        <label for="itemName">Name: </label>
+        <input type="text" name="itemName" value="<%=item.itemName%>">
+        <label for="itemPrice">Price: </label>
+        <input type="number" name="itemPrice" value="<%=item.itemPrice%>">
+        <button type="submit">Save</button>
+    </form>
+</body>
+
+</html>

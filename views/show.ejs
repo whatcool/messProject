@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details</title>
+</head>
+
+<body>
+    <form action="/<%=user._id%>/<%=itemId %>" method="POST">
+        <h2>
+            <%=item.itemName%>
+        </h2>
+        <h3>Rs.
+            <%=item.itemPrice%>
+        </h3>
+        <br>
+        <label for="itemQnt">Select Quantity </label>
+        <select name="itemQnt">
+            <% for(let i=0; i<=10; i++) {%>
+                <option value="<%=i%>"><%=i%></option>
+                <% } %>  
+        </select>
+        <br>
+        <button type="submit">Add to plate</button>
+    </form>
+</body>
+
+</html>
